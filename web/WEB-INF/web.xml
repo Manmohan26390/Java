@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>url_load</param-name>
+        <param-value>web\photos\</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>get_data_servlet</servlet-name>
+        <servlet-class>Photo.photo_uploading</servlet-class>
+        <multipart-config>
+            <max-file-size>2084882000000</max-file-size>
+            <max-request-size>41801884100000</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>Ph</servlet-name>
+        <servlet-class>Post_photo.photo_uploading</servlet-class>
+        <multipart-config>
+            <max-file-size>2084882000000</max-file-size>
+            <max-request-size>418018841000000</max-request-size>
+            <file-size-threshold>104857600</file-size-threshold>
+        </multipart-config>
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>get_data_servlet</servlet-name>
+        <url-pattern>/hari</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ph</servlet-name>
+        <url-pattern>/hari1</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

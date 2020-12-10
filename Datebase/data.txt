@@ -1,0 +1,62 @@
+| userlogin | CREATE TABLE `userlogin` (
+  `Email` varchar(200) DEFAULT NULL,
+  `First_Name` varchar(30) DEFAULT NULL,
+  `Last_Name` varchar(30) DEFAULT NULL,
+  `Sex` varchar(1) DEFAULT NULL,
+  `birthdate` datetime DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photo` varchar(40) DEFAULT '../photos/Default_image.png',
+  `school` varchar(80) DEFAULT ' ',
+  `high_school` varchar(80) DEFAULT ' ',
+  `college` varchar(80) DEFAULT ' ',
+  `intrested_in` varchar(2) DEFAULT ' ',
+  `pass` varchar(20) DEFAULT NULL,
+  `City` varchar(30) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1020 DEFAULT CHARSET=latin1 |
+
+
+
+
+
+
+ friends | CREATE TABLE `Friends` (
+  `id_user` int(11) NOT NULL DEFAULT '0',
+  `id_person` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_user`,`id_person`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
+
+
+
+
+
+| message | CREATE TABLE `message` (
+  `id_sender` int(11) DEFAULT NULL,
+  `id_reciever` int(11) DEFAULT NULL,
+  `Message` varchar(999) DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
+
+
+
+
+| post  | CREATE TABLE `post` (
+  `SR_NO` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `story` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`SR_NO`),
+  KEY `post_ibfk_1` (`id_user`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `userlogin` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 |
+
+
+
+
+| friend_request | CREATE TABLE `friend_request` (
+  `id_user` int(11) NOT NULL DEFAULT '0',
+  `id_person` int(11) NOT NULL DEFAULT '0',
+  `ch` varchar(1) DEFAULT 't',
+  PRIMARY KEY (`id_user`,`id_person`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
